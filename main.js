@@ -8,7 +8,6 @@ const Node = (value) => {
 const Lil = () => {
   return {
     head: null,
-    length: 0,
 
     values: function() {
       const newArr = [];
@@ -65,14 +64,25 @@ const Lil = () => {
 
     getAt: function(i) {
       if (!this.head){
-        return null
+        return null;
       }
-      newArr = this.values()
-      return newArr[i]
+      newArr = this.values();
+      return newArr[i];
     },
 
     removeAt: function(i) {
-    
+      if (!this.head){
+        return null
+      } 
+      let current = this.head;
+      i--
+      while (i > 0){
+        current = current.next;
+        i--;
+      }
+      const deleted = current.next;
+      current.next = deleted.next;
+      return deleted.value;
     },
   }
 }
