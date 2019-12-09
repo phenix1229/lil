@@ -11,11 +11,14 @@ const Lil = () => {
     length: 0,
 
     values: function() {
-      // let newArr = [];
-      // for (const item of this){
-      //   newArr.push(item.value)
-      // }
-      // return values;
+      const newArr = [];
+      let current = this.head;
+      while (current.next){
+        newArr.push(current.value);
+        current = current.next;
+      }
+      newArr.push(current.value)
+      return newArr;
     },
 
     addToStart: function(value) {
@@ -43,7 +46,9 @@ const Lil = () => {
     },
 
     removeFromStart: function() {
-    
+      const oldHead = this.head;
+      this.head = oldHead.next;
+      return oldHead;
     },
 
     removeFromEnd: function() {
