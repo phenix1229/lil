@@ -64,7 +64,11 @@ const Lil = () => {
     },
 
     getAt: function(i) {
-    
+      if (!this.head){
+        return null
+      }
+      newArr = this.values()
+      return newArr[i]
     },
 
     removeAt: function(i) {
