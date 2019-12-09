@@ -22,9 +22,9 @@ const Lil = () => {
 
     addToStart: function(value) {
       const newNode = Node(value);
-      if (this.head === null){
+      if (!this.head){
         this.head = newNode;
-      } else if (this.head !== null){
+      } else if (this.head){
         const oldHead = this.head;
         newNode.next = oldHead;
         this.head = newNode;
@@ -34,9 +34,9 @@ const Lil = () => {
 
     addToEnd: function(value) {
       const newNode = Node(value)
-      if (this.head === null){
+      if (!this.head){
         this.head = newNode;
-      } else if (this.head !== null){
+      } else if (this.head){
         let current = this.head;
         while (current.next){
           current = current.next;
