@@ -30,7 +30,6 @@ const Lil = () => {
         newNode.next = oldHead;
         this.head = newNode;
       }
-      this.length++;
       return this;
     },
 
@@ -39,20 +38,29 @@ const Lil = () => {
       if (this.head === null){
         this.head = newNode;
       } else if (this.head !== null){
-        this.head.next = newNode;
+        let current = this.head;
+        while (current.next){
+          current = current.next;
+        }
+        current.next = newNode; 
       }
-        this.length++;
       return this;
     },
 
     removeFromStart: function() {
       const oldHead = this.head;
       this.head = oldHead.next;
-      return oldHead;
+      return oldHead.value;
     },
 
     removeFromEnd: function() {
-    
+      let current = this.head;
+      while (current.next.next){
+        current = current.next;
+      }
+      const oldEnd = current.next;
+      current.next = null;
+      return oldEnd.value;
     },
 
     getAt: function(i) {
