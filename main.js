@@ -29,7 +29,6 @@ const Lil = () => {
         newNode.next = oldHead;
         this.head = newNode;
       }
-      return this;
     },
 
     addToEnd: function(value) {
@@ -43,7 +42,6 @@ const Lil = () => {
         }
         current.next = newNode; 
       }
-      return this;
     },
 
     removeFromStart: function() {
